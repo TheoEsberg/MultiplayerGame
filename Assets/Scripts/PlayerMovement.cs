@@ -28,7 +28,7 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     void Movement(){
-                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
         if(isGrounded && velocity.y < 0){
             velocity.y = -2f;
@@ -39,7 +39,7 @@ public class PlayerMovement : NetworkBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * movementSpeed * Time.deltaTime);
-
+   
         if(Input.GetButtonDown("Jump") && isGrounded){
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
